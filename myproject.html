@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css">
+   
+
+    <title>Project</title>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <div class="right">
+          <a href="" target="_blank"
+            ><img src="/assets/images/dumbwaysid.png" class="nav-logo" alt=""
+          /></a>
+        </div>
+        <div class="left">
+          <ul>
+            <a href="/index.html"><li class="btn-navbar-home">Home</li></a>
+            <a href="/myproject.html"><li class="btn-navbar-myproject" style="font-weight: bold">My Project</li></a>
+            <a href="/day1.html"
+              ><li class="btn-navbar-blog" >
+                Blog
+              </li></a
+            >
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-project1">
+      <div class="form-blog" onsubmit="addBlog(event)">
+        <h1 class="title-form-blog">ADD MY PROJECT</h1>
+        <form>
+          <div>
+            <input
+              type="text"
+              id="blog-name"
+              placeholder=""
+              class="form-input"
+            />
+            <label class="all-label" for="nama">Project Name</label>
+          </div>
+          <div class="label-for-date">
+            <div class="start-date">
+              <input
+                type="text"
+                id="label-start-date"
+                placeholder="yyyy-mm-dd"
+                required
+              />
+              <label class="all-label" for="label-start-date" class="start-date-style"
+                >Start Date</label
+              >
+            </div>
+            <div class="end-date">
+              <input
+                type="text"
+                id="label-end-date"
+                placeholder="yyyy-mm-dd"
+                required
+              />
+              <label class="all-label" for="label-end-date" class="end-date-style"
+                >End Date</label
+              >
+            </div>
+          </div>
+          <div>
+            <textarea id="message" placeholder=""></textarea>
+            <label class="all-label" for="message">Your message</label>
+          </div>
+          <div class="form-checkbox-container">
+            <div class="tech-section">
+              <label class="label-for-tech">Technologies:</label>
+              <div class="checkbox-container">
+                <div class="checkbox-left">
+                  <label class="checkbox-label">
+                    <input
+                      class="input-checkbox"
+                      type="checkbox"
+                      name="tech"
+                      value="NodeJs"
+                    />
+                    Node.js
+                  </label>
+                  <label class="checkbox-label">
+                    <input
+                      class="input-checkbox"
+                      type="checkbox"
+                      name="tech"
+                      value="Laravel"
+                    />
+                    Laravel
+                  </label>
+                </div>
+                <div class="checkbox-right">
+                  <label class="checkbox-label">
+                    <input
+                      class="input-checkbox"
+                      type="checkbox"
+                      name="tech"
+                      value="ReactJs"
+                    />
+                    React.js
+                  </label>
+                  <label class="checkbox-label">
+                    <input 
+                      class="input-checkbox"
+                      type="checkbox"
+                      name="tech"
+                      value="JavaScript"
+                    />
+                    JavaScript
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="upload-container">
+            <label for="file-upload" class="custom-file-upload">
+              Upload Image
+            </label>
+          </div>
+          <div class="file-input-container">
+            <input id="file-upload" type="file" />
+            <span
+              class="file-label"
+              onclick="document.getElementById('file-upload').click();"
+              >Choose</span
+            >
+            <span
+              class="file-icon"
+              onclick="document.getElementById('file-upload').click();"
+            >
+              <i class="fa-solid fa-paperclip"></i>
+            </span>
+          </div>
+          <div>
+            <button id="btn-1" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="container-project2">
+      <h1
+        style="
+          display: flex;
+          justify-content: center;
+          color: white;
+          margin-bottom: 10%;
+        "
+      >
+        MY PROJECT
+      </h1>
+      <div class="container-card" id="projects-container">
+        <!-- Card -->
+      </div>
+    </div>
+
+    <script src="/assets/js/project.js"></script>
+  </body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .right {
+        display: flex;
+        flex: 1;
+        align-items: center;
+      }
+
+      .left {
+        display: flex;
+        flex: none;
+        align-items: center;
+      }
+
+      ul {
+        margin-right: 150px;
+        display: flex;
+        gap: 50px;
+      }
+
+      .nav-logo {
+        width: 60px;
+        height: 40px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-left: 50px;
+      }
+
+      .btn-navbar-home {
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        font-size: 20px;
+        color: black;
+      }
+
+      .btn-navbar-home::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 100%;
+        height: 3px;
+        background-color: black;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+      }
+
+      .btn-navbar-home:hover::after {
+        transform: scaleX(1);
+        transform-origin: center;
+      }
+
+      .btn-navbar-myproject {
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        font-size: 20px;
+        color: black;
+      }
+
+      .btn-navbar-myproject::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 100%;
+        height: 3px;
+        background-color: black;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+      }
+
+      .btn-navbar-myproject:hover::after {
+        transform: scaleX(1);
+        transform-origin: center;
+      }
+
+      .btn-navbar-blog {
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        font-size: 20px;
+        color: black;
+      }
+
+      .btn-navbar-blog::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 100%;
+        height: 3px;
+        background-color: black;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+      }
+
+      .btn-navbar-blog:hover::after {
+        transform: scaleX(1);
+        transform-origin: center;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40%;
+        margin: auto;
+        margin-top: 50px;
+      }
+
+      .btn-1 {
+        cursor: pointer;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        background-color: black;
+        color: white;
+        padding: 7px 20px 7px 20px;
+        border-radius: 20px;
+        display: block;
+      }
+
+      .btn-1:hover {
+        background-color: transparent;
+        color: black;
+        font-weight: bold;
+        transition: 0.5s;
+      }
+
+      .cv {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        gap: 13px;
+      }
+
+      .cv img {
+        cursor: pointer;
+      }
+
+      .icon {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        gap: 30px;
+        font-size: 30px;
+        margin-left: 50px;
+      }
+
+      .icon a {
+        color: black;
+        border-radius: 50%;
+        transition: 0.5s ease;
+      }
+
+      .icon a:hover {
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+        transition: 0.5s ease;
+      }
+
+      .card {
+        box-shadow: -2px 2px 12px 1px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: -2px 2px 12px 1px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: -2px 2px 12px 1px rgba(0, 0, 0, 0.75);
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 295px;
+        height: 385px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        margin-top: 40px;
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .card h1 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      .card p {
+        margin-top: 4px;
+        font-size: 15x;
+        text-align: center;
+      }
+
+      /* Day 1 end */
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <div class="right">
+          <a href="" target="_blank"
+            ><img src="/assets/images/dumbwaysid.png" class="nav-logo" alt=""
+          /></a>
+        </div>
+        <div class="left">
+          <ul>
+            <a href="/index.html"><li class="btn-navbar-home">Home</li></a>
+            <a href="/myproject.html"><li class="btn-navbar-myproject">My Project</li></a>
+            <a href="/day1.html"
+              ><li class="btn-navbar-blog" style="font-weight: bold">
+                Blog
+              </li></a
+            >
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="top">
+        <h1 class="title">Hi Welcome to my blog</h1>
+        <p class="paragraph">
+          Saya adalah seorang programmer full-stack pemula dengan semangat
+          belajar yang tinggi. Saya sedang dalam perjalanan untuk menguasai
+          berbagai teknologi baik di sisi front-end maupun back-end. Dengan
+          pengalaman yang masih berkembang, saya terus mengeksplorasi berbagai
+          bahasa pemrograman, framework, dan alat bantu untuk menciptakan
+          aplikasi web yang fungsional dan user-friendly. Saya percaya bahwa
+          setiap baris kode adalah kesempatan untuk belajar dan setiap tantangan
+          adalah peluang untuk tumbuh. Meskipun masih dalam tahap awal,Saya
+          berkomitmen untuk terus belajar dan berkembang dalam bidang ini,
+          sambil berusaha memberikan yang terbaik dalam setiap proyek yang saya
+          kerjakan.
+        </p>
+        <a href="/contact.html" style="text-decoration: none"
+          ><button class="btn-1">Contact Me</button></a
+        >
+        <div class="cv">
+          <p style="font-size: 18px">dowload CV</p>
+          <img
+            src="/assets/images/download.jpg"
+            alt=""
+            width="25px"
+            height="25px"
+          />
+        </div>
+      </div>
+      <div class="bot">
+        <div class="icon">
+          <a href="https://www.instagram.com/" target="_blank"
+            ><i class="fa-brands fa-square-instagram"></i
+          ></a>
+          <a href="https://x.com/X" target="_blank"
+            ><i class="fa-brands fa-square-twitter"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </div>
+        <div class="card">
+          <img src="/assets/images/foto.jpg" alt="" />
+          <h1>Muhammad Farhaan</h1>
+          <p>Fullstack Dev</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

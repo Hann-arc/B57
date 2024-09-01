@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <title>Contact Me</title>
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="right">
+                <a href="" target="_blank"><img src="/assets/images/dumbwaysid.png" class="nav-logo" alt=""/></a>
+            </div>
+            <div class="left">
+                <ul>
+                    <a href="/index.html"><li class="btn-navbar-home">Home</li></a>
+                    <a href="/myproject.html"><li class="btn-navbar-myproject">My Project</li></a>
+                    <a href="/day1.html"><li class="btn-navbar-blog">Blog</li></a>
+                 </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+    <div class="form">
+        <h1 class="title-form">Contact Me</h1>
+        <form onsubmit="sendEmail(event)">
+            <div>
+                <input type="text" id="nama" placeholder="" class="form-input">
+                <label  class="all-label" for="nama">Nama</label>
+            </div>
+            <div>
+                <input type="email" id="email" placeholder="" class="form-input">
+                <label  class="all-label" for="email">Email</label>
+            </div>
+            <div>
+                <input type="number" id="phone" placeholder="" class="form-input">
+                <label class="all-label" for="phone">No telpon</label>
+            </div>
+            <div>
+                <select id="job">
+                    <option value="" hidden>Subject</option>
+                    <option value="Fullstack Dev">Fullstack Dev</option>
+                    <option value="Frontend Dev">Frontend Dev</option>
+                    <option value="Backend Dev">Backend Dev</option>
+                </select>
+                <label for="job"></label>
+            </div>
+            
+            
+            <div>
+                <textarea id="message" placeholder=""></textarea>
+                <label class="all-label" for="message">Your message</label>
+            </div>
+            <div>
+                <button id="btn-1" type="submit">Send Message</button>
+            </div>
+            <div class="text-container">
+                <span class="text-content">or you can reach me on</span>
+            </div>
+            <div class="icon-contact">
+                <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram" style="color:#000;"></i></a>
+                <a href="https://x.com/X" target="_blank"><i class="fa-brands fa-x-twitter" style="color:#000;"></i></a>
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f" style="color:#000;"></i></a>
+                <a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in" style="color:#000;"></i></a>
+                <a href="https://github.com/"><i class="fa-brands fa-github" style="color:#000;"></i></a>
+              </div>
+        </form>
+    </div>
+    
+
+    <script src="/assets/js/contact.js"></script>
+</body>
+</html>
