@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -10,63 +10,129 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .active {
+        font-weight: bold;
+      }
+      .span-logo {
+        margin-left: 10px;
+      }
+    </style>
+
     <title>Home</title>
-</head>
-<body>
-    <nav>
-        <div class="navbar">
-            <div class="right">
-                <a href="" target="_blank"><img src="/assets/images/dumbwaysid.png" class="nav-logo" alt=""/></a>
-            </div>
-            <div class="left">
-                <ul>
-                    <a href="/index.html"><li class="btn-navbar-home" style="font-weight: bold;">Home</li></a>
-                    <a href="/myproject.html"><li class="btn-navbar-myproject">My Project</li></a>
-                    <a href="/day1.html"><li class="btn-navbar-blog">Blog</li></a>
-                 </ul>
-                
-            </div>
+  </head>
+  <body>
+    <!-- INI NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <img
+          style="width: 75px; height: 45px; margin-left: 10px"
+          src="/assets/images/dumbwaysid.png"
+        />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-2">
+            <li class="nav-item ms-lg-4">
+              <a class="nav-link active" aria-current="page" href="/index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item ms-lg-4">
+              <a class="nav-link" href="/myproject.html">My Project</a>
+            </li>
+            <li class="nav-item ms-lg-4">
+              <a class="nav-link " href="/testimonials.html">Testiomonials</a>
+            </li>
+          </ul>
+          </ul>
+          <button class="btn btn-dark" type="submit">
+            <a href="/contact.html" style="text-decoration: none; color: white"
+              >Contact Me</a
+            >
+          </button>
         </div>
+      </div>
     </nav>
 
-    <div class="containerday2">
-        <div class="contentday2">
-            <div class="description">
-                <h1 class="title-day2">Muhammad Farhaan</h1>
-                <h2 class="job">and i'm a  <span> Fullstack Dev </span></h2>
-             <p class="paragraph-day2">
-                Saya adalah seorang programmer full-stack pemula dengan semangat
-                belajar yang tinggi. Saya sedang dalam perjalanan untuk menguasai
-                berbagai teknologi baik di sisi front-end maupun back-end. Dengan
-                pengalaman yang masih berkembang, saya terus mengeksplorasi berbagai
-                bahasa pemrograman, framework, dan alat bantu untuk menciptakan
-                aplikasi web yang fungsional dan user-friendly. Saya percaya bahwa
-                setiap baris kode adalah kesempatan untuk belajar dan setiap tantangan
-                adalah peluang untuk tumbuh. Meskipun masih dalam tahap awal,Saya
-                berkomitmen untuk terus belajar dan berkembang dalam bidang ini,
-                sambil berusaha memberikan yang terbaik dalam setiap proyek yang saya
-                kerjakan.
-               </p>
-               <div class="warp-btn">
-                 <a href="/contact.html"><button class="btn-contact-day2">Contact Me</button></a>
-              </div>
+    <!-- NAVBAR END -->
+
+    <!-- DONTAINER 1 -->
+
+    <div class="container mt-5">
+      <div class="d-flex flex-column flex-lg-row shadow-lg p-3 mb-5">
+        <div class="p-2 flex-grow-1" style="flex: 60%">
+          <h3 class="mt-5 mb-5">Hi Welcome to my hut</h3>
+          <p class="mb-5">
+            Saya adalah seorang programmer full-stack pemula dengan semangat belajar yang tinggi. Saya sedang dalam perjalanan untuk menguasai berbagai teknologi baik di sisi front-end maupun back-end. Dengan pengalaman yang masih berkembang, saya terus mengeksplorasi berbagai bahasa pemrograman, framework, dan alat bantu untuk menciptakan aplikasi web yang fungsional dan user-friendly. Saya percaya bahwa setiap baris kode adalah kesempatan untuk belajar dan setiap tantangan adalah peluang untuk tumbuh. Meskipun masih dalam tahap awal,Saya berkomitmen untuk terus belajar dan berkembang dalam bidang ini, sambil berusaha memberikan yang terbaik dalam setiap proyek yang saya kerjakan.
+          </p>
+          <div class="d-flex align-items-center mb-5 mt-4">
+            <button class="btn btn-dark me-3" type="submit">
+              <a href="/contact.html" style="text-decoration: none; color: white">Contact Me</a>
+            </button>
+            <div>Download CV</div>
+            <i class="fa-solid fa-paperclip ms-3" style="color: #000000; cursor: pointer;"></i>
+          </div>
+          <div class="d-flex mt-4 mb-4" style="gap: 20px;">
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl" style="color: #000000;"></i></a>
+            <a href="https://x.com/X" target="_blank"><i class="fa-brands fa-x-twitter fa-xl" style="color: #000000;"></i></a>
+            <a href="https://web.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-xl" style="color: #000000;"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl" style="color: #000000;"></i></a>
+            <a href="https://github.com/" target="_blank"><i class="fa-brands fa-github fa-xl" style="color: #000000;"></i></a>
+          </div>
+        </div>
+        <div class="p-2 flex-grow-1" style="flex: 40%;">
+          <div class="card mx-auto" style="width: 18rem; margin-top: 50px; margin-bottom: 30px; text-align: center;">
+            <img src="/assets/images/foto.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title" style="font-weight: bold;">Card title</h5>
+              <p class="card-text">Fullstack Dev</p>
             </div>
-            <div class="iconday2">
-                <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram" style="color: #b5ebff;"></i></a>
-                <a href="https://x.com/X" target="_blank"><i class="fa-brands fa-x-twitter" style="color: #b5ebff;"></i></a>
-                <a href="https://web.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f" style="color: #b5ebff;"></i></a>
-                <a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in" style="color: #b5ebff;"></i></a>
-                <a href="https://github.com/" target="_blank"><i class="fa-brands fa-github" style="color: #b5ebff;"></i></a>
-              </div>
-              
+          </div>
         </div>
-        <div class="content-card-day2">
-            <div class="container-card-day2">
-                <div class="card-day2">
-                    <img src="/assets/images/foto.jpg" alt="img" />
-                </div>
-        </div>
+      </div>
     </div>
-</body>
+    
+    <!-- CONTAINER 2 END-->
+
+    <div class="container-md container-project2" style="margin-top: 150px">
+      <h1
+        class="h1-project2"
+        style="text-align: center; font-size: 30px; margin-bottom: 0px"
+      >
+        MY PROJECT
+      </h1>
+      <div
+        class="d-flex flex-wrap justify-content-start mb-5 mt-5"
+        id="projects-container"
+      >
+        <!-- card -->
+      </div>
+    </div>
+
+    <script src="/assets/js/project.js"></script>
+    <script src="/assets/js/home.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

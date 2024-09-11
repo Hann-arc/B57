@@ -1,10 +1,3 @@
-flatpickr("#label-start-date", {
-  dateFormat: "Y-m-d",
-});
-flatpickr("#label-end-date", {
-  dateFormat: "Y-m-d",
-});
-
 function addBlog(event) {
   event.preventDefault();
 
@@ -44,9 +37,6 @@ function addBlog(event) {
     }
   });
 
-  const inputImage = document.getElementById("file-upload").files;
-  const blobImage = URL.createObjectURL(inputImage[0]);
-  let image = blobImage;
   let timeDifference = endDate - startDate;
   let dayDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
   let yearDifference = endDate.getFullYear() - startDate.getFullYear();
@@ -84,42 +74,46 @@ function addBlog(event) {
     durationText = "0 hari";
   }
 
-  let truncatedMessage = message.length > 100 ? message.substring(0, 100) + "..." : message;
-  let projectCard = `<div class="card">
-          <img src="${image}" />
-          <div class="card-detail">
-            <h2><a href="/detail.html" style="text-decoration: none; color: black;" target="_blank">${projectName}</a></h2>
-            <p class="duration">Durasi: ${durationText}</p>
-            <p>${truncatedMessage}</p>
-            ${techIcons}
-            <div class="buttons">
-              <a href="detail.html" class="btna" id="visit-link"></a
-              ><button class="edit" onclick="visitProject(this)">Edit</button>
-              <button class="delete" onclick="deleteProject(this)">Delete</button>
-            </div>
-          </div>
-        </div>`;
-        
-        
-        
-  document.getElementById("projects-container").insertAdjacentHTML("afterbegin", projectCard);
+  let truncatedMessage =
+    message.length > 100 ? message.substring(0, 100) + "..." : message;
 
+  const inputImage = document.getElementById("file-upload").files;
 
-  localStorage.setItem('projectData', JSON.stringify({
-    projectName,
-    startDate: startDate.toISOString(),
-    endDate: endDate.toISOString(),
-    message,
-    image,
-    techList
-}));
+  if (inputImage.length > 0) {
+    const reader = new FileReader();
+    reader.readAsDataURL(inputImage[0]);
 
-  document.querySelector("form").reset();
+    reader.onloadend = function () {
+      const image = reader.result; 
+
+      const projectData = {
+        projectName,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        message,
+        image, 
+        truncatedMessage,
+        techList,
+      };
+
+      let existingProjects = JSON.parse(localStorage.getItem('projectDataList')) || [];
+      existingProjects.push(projectData);
+      localStorage.setItem('projectDataList', JSON.stringify(existingProjects));
+
+      console.log({
+        "nama": projectName,
+        "gambar": image,
+        "durasi": durationText,
+        "deskripsi": message,
+        "techIcone": techList,
+        "start date": startDate,
+        "endDate": endDate,
+      });
+
+      
+      document.querySelector("form").reset();
+    };
+  } else {
+    console.log("No file uploaded");
+  }
 }
-
-function deleteProject(button) {
-  const card = button.closest('.card');
-    card.remove();
-  
-}
-

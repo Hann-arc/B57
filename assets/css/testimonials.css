@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+}
+
+
+.container-top {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.paragraph {
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.btn-rat{
+    font-size: large;
+    font-weight: bold;
+    margin: 20px;
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.container-bot {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-left: 100px;
+    margin-top: 75px;
+    margin-bottom: 50px;
+    padding-bottom: 50px ;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 20%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: -2px 0px 11px 3px rgba(0, 0, 0, 0.67);
+    -webkit-box-shadow: -2px 0px 11px 3px rgba(0, 0, 0, 0.67);
+    -moz-box-shadow: -2px 0px 11px 3px rgba(0, 0, 0, 0.67);
+
+}
+
+.description {
+    margin-top: 40px;
+}
+
+.author {
+    align-self: flex-end;
+    font-weight: bold;
+
+}
+
+.card-rat-star {
+    gap: 4px;
+    font-weight: bold;
+    display: flex;
+    justify-content: end;
+}

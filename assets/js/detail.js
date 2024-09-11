@@ -1,9 +1,16 @@
-window.onload = function () {
-  let projectData = JSON.parse(localStorage.getItem("projectData"));
+window.onload = function() {
+  const projects = JSON.parse(localStorage.getItem('projectDataList')) || [];
 
-  if (projectData) {
-    let startDate = new Date(projectData.startDate);
-    let endDate = new Date(projectData.endDate);
+  // Ambil ID dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const projectId = urlParams.get('id');
+
+  // Pastikan ID valid dan proyek ada
+  if (projects.length > 0 && projectId < projects.length) {
+    const project = projects[projectId]; // Ambil proyek berdasarkan ID
+
+    let startDate = new Date(project.startDate);
+    let endDate = new Date(project.endDate);
 
     let timeDifference = endDate - startDate;
     let dayDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
@@ -20,14 +27,14 @@ window.onload = function () {
       ).getDate();
       remainingDays += daysInLastMonth;
     }
-  
+
     if (monthDifference < 0) {
       yearDifference--;
       monthDifference += 12;
     }
-  
+
     let durationText = "";
-  
+
     if (yearDifference > 0) {
       durationText += `${yearDifference} tahun `;
     }
@@ -37,7 +44,7 @@ window.onload = function () {
     if (remainingDays > 0) {
       durationText += `${remainingDays} hari`;
     }
-  
+
     if (!durationText) {
       durationText = "0 hari";
     }
@@ -47,56 +54,68 @@ window.onload = function () {
     }
 
     let techIcons = '';
-    projectData.techList.forEach((tech) => {
+    project.techList.forEach((tech) => {
       switch (tech) {
         case "NodeJs":
           techIcons +=
-            '<div class="container-detail-logo"><i class="fa-brands fa-node-js fa-xl"><p>Node Js</p></i></div>';
+            '<div class="col-6 d-flex align-items-center"><i class="fa-brands fa-node-js fa-xl me-2"></i><p class="mb-0">Node Js</p></div>';
           break;
         case "Laravel":
           techIcons +=
-            '<div class="container-detail-logo"><i class="fa-brands fa-laravel fa-xl"><p>Laravel</p></i></div>';
+            '<div class="col-6 d-flex align-items-center"><i class="fa-brands fa-laravel fa-xl me-2"></i><p class="mb-0">Laravel</p></div>';
           break;
         case "ReactJs":
           techIcons +=
-            '<div class="container-detail-logo"><i class="fa-brands fa-react fa-xl"><p>React Js</p></i></div>';
+            '<div class="col-6 d-flex align-items-center"><i class="fa-brands fa-react fa-xl me-2"></i><p class="mb-0">React Js</p></div>';
           break;
         case "JavaScript":
           techIcons +=
-            '<div class="container-detail-logo"><i class="fa-brands fa-js fa-xl"><p>Javascript</p></i></div>';
+            '<div class="col-6 d-flex align-items-center"><i class="fa-brands fa-js fa-xl me-2"></i><p class="mb-0">JavaScript</p></div>';
           break;
       }
     });
-    let detailProject = `<h1 class="detail-title">${projectData.projectName}</h1>
-      <div class="detail-container">
-        <div class="first-container">
-          <div class="detail-img"><img src="${projectData.image}" /></div>
-          <div class="detail-other">
-            <div class="detail-duration">
-              <h2>Duration :</h2>
-              <div class="container-detail-duration">
-                <i class="fa-solid fa-calculator fa-xl">
-                  <p>${formatDateISO(startDate)} - ${formatDateISO(endDate)}</p>
-                </i>
-                <i class="fa-regular fa-clock fa-xl">
-                  <p>${durationText}</p>
-                </i>
+
+    let detailProject = ` <h1 style="text-align: center; margin-top: 25px;">${project.projectName}</h1>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-lg-7 col-md-8 col-sm-12 mb-3">
+            <img src="${project.image}" class="img-fluid" alt="" style="max-height: 500px; object-fit: cover; width: 100%;">
+          </div>
+          <div class="col-lg-5 col-md-4 col-sm-12">
+            <div class="d-flex flex-column mb-3">
+              <h4>Duration :</h4>
+              <div class="p-2">
+                <div class="d-flex flex-row align-items-center mb-3">
+                  <i class="fa-solid fa-calculator fa-xl me-2"></i>
+                  <p class="mb-0">${formatDateISO(startDate)} - ${formatDateISO(endDate)}</p>
+                </div>
+              </div>
+              <div class="p-2">
+                <div class="d-flex flex-row align-items-center mb-3">
+                  <i class="fa-regular fa-clock fa-xl me-2"></i>
+                  <p class="mb-0">${durationText}</p>
+                </div>
               </div>
             </div>
-            <div class="detail-logo">
-              <h2>Technologies :</h2>
-              <div class="container-detail-logo">${techIcons}</div>
+      
+            <div class="container">
+              <h4 style="text-align: start;">Technologies:</h4>
+              <div class="row">
+              ${techIcons}
+              </div>
             </div>
           </div>
         </div>
-        <div class="second-container">
-          <p>${projectData.message}</p>
+        <div class="row">
+          <div class="col-12">
+            <p class="mt-4">${project.message}</p>
+          </div>
         </div>
-      </div>
-    </div>`;
-
+      </div>`;
 
     document.getElementById('detail-Project').insertAdjacentHTML('beforeend', detailProject);
     
+  } else {
+    console.log("Project not found");
   }
 };

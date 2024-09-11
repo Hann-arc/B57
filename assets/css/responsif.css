@@ -1,0 +1,168 @@
+@media screen and (max-width: 640px) {
+    .hamburger {
+        display: flex !important;
+    }
+
+    .ul-1 {
+        display: none;
+    }
+
+    /* Res Home */
+
+    .containerday2 {
+        flex-direction: column;
+        width: 100% !important;
+        margin-top: 50px !important;
+    }
+
+    .contentday2 {
+        width: 100%;
+        margin-top: -90px;
+        margin-left: -20px;
+    }
+    .description{
+        width: 90%;
+        margin: auto !important;
+    }
+    .title-day2 {
+        font-size: 25px;
+    }
+
+    .job, span {
+        font-size: 20px;
+    }
+
+    #nav-paragraph {
+        font-size: 12px;
+    }
+
+    .btn-contact-day2 a {
+        font-size: 10px;
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+
+    .iconday2 {
+        display: none !important;
+    }
+    .iconday2-2 {
+        display: flex !important;
+        margin-bottom: 50px;
+        padding-left: 60px;
+    }
+
+    .iconday2-2 a, i {
+        font-size: 15px;
+        height: 15px;
+    }
+    .content-card-day2{
+        display: flex;
+        flex-direction: column;
+    }
+    .container-card-day2 {
+        width: 200px !important;
+        height: 200px !important;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 120px !important;
+    }
+
+    .container-card-day2 img {
+        top: 5px !important;
+        display: block !important;
+        left: 5px !important;
+        width: calc(100% - 10px) !important;
+        height: calc(100% - 10px) !important;
+    }
+
+    /* Res contact */
+
+    .form {
+        width: 90%;
+    }
+
+    .text-content {
+        font-size: 15px !important;
+    }
+
+    .text-container::before,
+    .text-container::after {
+        content: '———' !important;
+        margin: 0 10px;
+    }
+    .form-blog{
+        width: 90%;
+    }
+    .title-form-blog{
+        font-size: 23px;
+    }
+
+    /* res PROJECT */
+
+    .h1-project2{
+        font-size: 23px;
+    }
+    .container-card{
+        gap: 2px !important;
+        width: 100%;
+        margin-left: 2px !important;
+        margin-right: 2px !important;
+    }
+    .card {
+        width: 41%!important;
+        margin: 0;
+    }
+    .card-detail{
+        padding: 0 !important;
+        padding-top: 20px !important;
+    }
+    .card img{
+        height: 70px !important;
+    }
+    .card h2{
+        font-size: 17px !important;
+        width: 153px;
+    }
+    .duration{
+        font-size: 12px;
+    }
+    .card-description{
+        font-size: 10px;
+    }
+    .span-logo{
+        font-size: 9px;
+    }
+
+    /* res Detail */
+
+    .detail-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .detail-title{
+        font-size: 30px !important;
+    }
+    .first-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .detail-img img{
+        width: 90% !important;
+        margin: auto;
+    }
+    .detail-other{
+        font-size: 10px !important;
+        display: flex;
+        flex-direction: row;
+        margin-left: 0 !important;
+    }
+    .second-container{
+        width: 90%;
+        margin: auto;
+        margin-top: 8px  !important;
+    }
+    .second-container p{
+        font-size: 15px;
+    }
+
+}

@@ -22,14 +22,13 @@
         align-items: center;
         margin-top: 20px;
       }
-
-      .right {
+      .left {
         display: flex;
         flex: 1;
         align-items: center;
       }
 
-      .left {
+      .right {
         display: flex;
         flex: none;
         align-items: center;
@@ -53,6 +52,7 @@
         cursor: pointer;
         position: relative;
         display: inline-block;
+        padding: 0;
         font-size: 20px;
         color: black;
       }
@@ -127,6 +127,153 @@
         transform-origin: center;
       }
 
+      @media screen and (max-width: 640px) {
+        .hamburger {
+          display: flex !important;
+        }
+        .ul-1 {
+          display: none;
+        }
+        .top {
+          width: 170%;
+        }
+        .title {
+          font-size: 25px;
+        }
+        .paragraph {
+          font-size: 12px;
+        }
+        .btn-1 {
+          padding: 5px 15px 5px 15px !important;
+          font-size: 7px;
+        }
+        .btn-container {
+          display: flex;
+        }
+        .cv {
+          font-size: 13px !important;
+        }
+        .cv p {
+          margin-left: 25px;
+        }
+        .icon {
+          margin-bottom: 50px;
+          margin-left: 20px !important;
+        }
+        .icon a,
+        i {
+          font-size: 15px;
+          height: 15px;
+        }
+        .card {
+         width: 190px !important;
+         height: 259px !important;
+        }
+        .card h1{
+          font-size: 15px !important;
+        }
+        .card p{
+          font-size: 10px !important;
+        }
+      }
+
+      .hamburger {
+        display: none;
+        height: 50px;
+        width: 50px;
+        position: relative;
+        cursor: pointer;
+        z-index: 2;
+      }
+
+      .hamburger span {
+        height: 5px;
+        width: 100%;
+        background-color: black;
+        border-radius: 25px;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease;
+      }
+
+      .hamburger span:nth-child(1) {
+        top: 25%;
+      }
+
+      .hamburger span:nth-child(3) {
+        top: 75%;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        background-color: white;
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        background-color: white;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background-color: white;
+      }
+
+      .menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: auto;
+        background: black;
+        border-top-left-radius: 150px;
+        border-bottom-left-radius: 150px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        transform: translate(100%, -100%);
+        transition: transform 0.3s ease;
+        z-index: 1;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .menu.active {
+        transform: translate(0, 0);
+      }
+
+      .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 2px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu li {
+        margin: 5px 0;
+        padding: 5px 0;
+      }
+
+      .menu a {
+        color: white;
+        font-size: 14px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        padding: 8px;
+      }
+
+      .menu a:hover {
+        font-weight: bold;
+      }
+
       .container {
         display: flex;
         flex-direction: column;
@@ -137,16 +284,28 @@
       }
 
       .btn-1 {
-        cursor: pointer;
-        margin-top: 15px;
-        margin-bottom: 10px;
         background-color: black;
         color: white;
-        padding: 7px 20px 7px 20px;
-        border-radius: 20px;
-        display: block;
+        font-weight: bold;
+        border-radius: 15px;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
       }
-
+      .btn-1 a {
+        text-decoration: none;
+        color: white;
+        padding: 7px 30px 7px 30px;
+      }
+      .btn-1 a:hover {
+        background-color: transparent;
+        color: black;
+        transition: 0.5s;
+      }
       .btn-1:hover {
         background-color: transparent;
         color: black;
@@ -159,6 +318,7 @@
         text-align: center;
         align-items: center;
         gap: 13px;
+        font-size: 18px;
       }
 
       .cv img {
@@ -228,21 +388,36 @@
   <body>
     <nav>
       <div class="navbar">
-        <div class="right">
+        <div class="left">
           <a href="" target="_blank"
             ><img src="/assets/images/dumbwaysid.png" class="nav-logo" alt=""
           /></a>
         </div>
-        <div class="left">
-          <ul>
+        <div class="right">
+          <ul class="ul-1">
             <a href="/index.html"><li class="btn-navbar-home">Home</li></a>
-            <a href="/myproject.html"><li class="btn-navbar-myproject">My Project</li></a>
+            <a href="/myproject.html"
+              ><li class="btn-navbar-myproject">My Project</li></a
+            >
             <a href="/day1.html"
               ><li class="btn-navbar-blog" style="font-weight: bold">
                 Blog
               </li></a
             >
           </ul>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="menu">
+            <ul>
+              <li class="li"><a href="/index.html">Home</a></li>
+              <li class="li"><a href="/myproject.html">My Project</a></li>
+              <li class="li"><a href="/contact.html">Contact</a></li>
+              <li class="li"><a href="/day1.html">Blog</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -262,17 +437,19 @@
           sambil berusaha memberikan yang terbaik dalam setiap proyek yang saya
           kerjakan.
         </p>
-        <a href="/contact.html" style="text-decoration: none"
-          ><button class="btn-1">Contact Me</button></a
-        >
-        <div class="cv">
-          <p style="font-size: 18px">dowload CV</p>
-          <img
-            src="/assets/images/download.jpg"
-            alt=""
-            width="25px"
-            height="25px"
-          />
+        <div class="btn-container">
+          <button class="btn-1">
+            <a href="/contact.html" style="text-decoration: none">Contact Me</a>
+          </button>
+          <div class="cv">
+            <p>dowload CV</p>
+            <img
+              src="/assets/images/download.jpg"
+              alt=""
+              width="25px"
+              height="25px"
+            />
+          </div>
         </div>
       </div>
       <div class="bot">
@@ -283,14 +460,10 @@
           <a href="https://x.com/X" target="_blank"
             ><i class="fa-brands fa-square-twitter"></i
           ></a>
-          <a
-            href="https://www.facebook.com/"
-            target="_blank"
+          <a href="https://www.facebook.com/" target="_blank"
             ><i class="fa-brands fa-facebook"></i
           ></a>
-          <a
-            href="https://www.linkedin.com/"
-            target="_blank"
+          <a href="https://www.linkedin.com/" target="_blank"
             ><i class="fa-brands fa-linkedin"></i
           ></a>
         </div>
@@ -301,5 +474,6 @@
         </div>
       </div>
     </div>
+    <script src="/assets/js/hamberger.js"></script>
   </body>
 </html>
