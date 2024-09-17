@@ -51,20 +51,27 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-2">
             <li class="nav-item ms-lg-4">
-              <a class="nav-link active" aria-current="page" href="/index.html"
+              <a class="nav-link active" aria-current="page" href="/home"
                 >Home</a
               >
             </li>
             <li class="nav-item ms-lg-4">
-              <a class="nav-link" href="/myproject.html">My Project</a>
+              <a class="nav-link" href="/myproject">My Project</a>
             </li>
             <li class="nav-item ms-lg-4">
-              <a class="nav-link " href="/testimonials.html">Testiomonials</a>
+              <a class="nav-link " href="/testimonials">Testiomonials</a>
             </li>
           </ul>
-          </ul>
+           <ul class="navbar-nav mb-2 mb-lg-0 ms-2">
+            <li class="nav-item ms-lg-4">
+              <a class="nav-link" href="/auth/login">Login</a>
+            </li>
+            <li class="nav-item ms-lg-2 me-4">
+              <a class="nav-link" href="/auth/register">Register</a>
+            </li>
+         </ul>
           <button class="btn btn-dark" type="submit">
-            <a href="/contact.html" style="text-decoration: none; color: white"
+            <a href="/contact" style="text-decoration: none; color: white"
               >Contact Me</a
             >
           </button>
@@ -85,7 +92,7 @@
           </p>
           <div class="d-flex align-items-center mb-5 mt-4">
             <button class="btn btn-dark me-3" type="submit">
-              <a href="/contact.html" style="text-decoration: none; color: white">Contact Me</a>
+              <a href="/contact" style="text-decoration: none; color: white">Contact Me</a>
             </button>
             <div>Download CV</div>
             <i class="fa-solid fa-paperclip ms-3" style="color: #000000; cursor: pointer;"></i>
@@ -102,7 +109,7 @@
           <div class="card mx-auto" style="width: 18rem; margin-top: 50px; margin-bottom: 30px; text-align: center;">
             <img src="/assets/images/foto.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
-              <h5 class="card-title" style="font-weight: bold;">Card title</h5>
+              <h5 class="card-title" style="font-weight: bold;">Muhammad Farhaan</h5>
               <p class="card-text">Fullstack Dev</p>
             </div>
           </div>
@@ -123,7 +130,34 @@
         class="d-flex flex-wrap justify-content-start mb-5 mt-5"
         id="projects-container"
       >
-        <!-- card -->
+        {{#each blogs}}
+        <div class="card h-100 mx-5" style="width: 20rem; margin-top: 20px;">
+            <img
+              src="{{image}}"
+              style="width: 100%; height: 200px; object-fit: cover;"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title"><a href="/detail/{{id}}" style="text-decoration: none; color: black;" target="_blank">{{name}}</a></h5>
+              <p class="card-text" style="color: grey;">Duration : {{resultCoutDays}}</p>
+              <p class="card-text">
+                {{truncatedMessage}}
+              </p>
+              {{{techIcons}}}
+              <div
+                class="d-flex justify-content-around"
+                style="align-items: center; margin-top: 20px"
+              >
+                <a href="/edit-blog/{{id}}" class="btn btn-dark btn-sm pb-1 pt-1 ps-4 pe-4"
+                  >Edit</a
+                >
+                <a href="/delete-blog/{{id}}" class="btn btn-dark btn-sm pb-1 pt-1 ps-4 pe-4">Delete</a
+                >
+              </div>
+            </div>
+          </div>
+        {{/each}}
       </div>
     </div>
 

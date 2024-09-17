@@ -74,33 +74,7 @@ window.onload = function() {
         });
       }
 
-      const projectCard = `<div class="card h-100 mx-5" style="width: 20rem; margin-top: 20px;">
-            <img
-              src="${project.image}"
-              style="width: 100%; height: 200px; object-fit: cover;"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title"><a href="/detail.html?id=${index}" style="text-decoration: none; color: black;" target="_blank">${project.projectName}</a></h5>
-              <p class="card-text" style="color: grey;">Duration : ${durationText}</p>
-              <p class="card-text">
-                ${project.truncatedMessage}
-              </p>
-              ${techIcons}
-              <div
-                class="d-flex justify-content-around"
-                style="align-items: center; margin-top: 20px"
-              >
-                <a href="#" class="btn btn-dark btn-sm pb-1 pt-1 ps-4 pe-4"
-                  >Edit</a
-                >
-                <a href="#" class="btn btn-dark btn-sm pb-1 pt-1 ps-4 pe-4"
-                onclick="deleteProject(${index}, this)">Delete</a
-                >
-              </div>
-            </div>
-          </div>`;
+      const projectCard = ``;
 
       projectsContainer.insertAdjacentHTML("beforeend", projectCard);
     });

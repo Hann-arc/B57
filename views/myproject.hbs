@@ -35,7 +35,7 @@
   <body>
     <!-- INI NAVBAR -->
 
-    <nav class="navbar navbar-expand-lg">
+   <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <img
           style="width: 75px; height: 45px; margin-left: 10px"
@@ -55,20 +55,27 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-2">
             <li class="nav-item ms-lg-4">
-              <a class="nav-link" aria-current="page" href="/index.html"
+              <a class="nav-link" aria-current="page" href="/home"
                 >Home</a
               >
             </li>
             <li class="nav-item ms-lg-4">
-              <a class="nav-link active" href="/myproject.html">My Project</a>
+              <a class="nav-link active" href="/myproject">My Project</a>
             </li>
             <li class="nav-item ms-lg-4">
-              <a class="nav-link " href="/testimonials.html">Testiomonials</a>
+              <a class="nav-link " href="/testimonials">Testiomonials</a>
             </li>
           </ul>
-          </ul>
+           <ul class="navbar-nav mb-2 mb-lg-0 ms-2">
+            <li class="nav-item ms-lg-4">
+              <a class="nav-link" href="/auth/login">Login</a>
+            </li>
+            <li class="nav-item ms-lg-2 me-4">
+              <a class="nav-link" href="/auth/register">Register</a>
+            </li>
+         </ul>
           <button class="btn btn-dark" type="submit">
-            <a href="/contact.html" style="text-decoration: none; color: white"
+            <a href="/contact" style="text-decoration: none; color: white"
               >Contact Me</a
             >
           </button>
@@ -82,10 +89,10 @@
     
     <div class="container-md mb-5 container-myproject" style="max-width: 800px;">
       <h1 class="text-center" style="font-size: 30px;">ADD MY PROJECT</h1>
-      <form class="mx-lg-5" onsubmit="addBlog(event)">
-        <div class="mb-3 mt-5">
+      <form class="mx-lg-5" action="/myproject" method="POST">
+          <div class="mb-3 mt-5">
           <label for="blog-name" class="form-label">Project Name</label>
-          <input type="text" class="form-control" id="blog-name" />
+          <input type="text" name="name" class="form-control" id="blog-name" />
         </div>
     
         <div class="container text-center">
@@ -95,6 +102,7 @@
               <input
                 type="date"
                 class="form-control"
+                name="start_date"
                 id="label-start-date"
               />
             </div>
@@ -103,6 +111,7 @@
               <input
                 type="date"
                 class="form-control"
+                name="end_date"
                 id="label-end-date"
                 aria-describedby="emailHelp"
               />
@@ -114,10 +123,11 @@
           <textarea
             class="form-control"
             placeholder="Leave a comment here"
-            id="message"
+            name="description"
+            id="description"
             style="height: 100px;"
           ></textarea>
-          <label for="message">Description</label>
+          <label for="description">Description</label>
         </div>
     
         <label for="tech" class="mb-3">Technologies :</label>

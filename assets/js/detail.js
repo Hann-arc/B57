@@ -75,43 +75,7 @@ window.onload = function() {
       }
     });
 
-    let detailProject = ` <h1 style="text-align: center; margin-top: 25px;">${project.projectName}</h1>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-lg-7 col-md-8 col-sm-12 mb-3">
-            <img src="${project.image}" class="img-fluid" alt="" style="max-height: 500px; object-fit: cover; width: 100%;">
-          </div>
-          <div class="col-lg-5 col-md-4 col-sm-12">
-            <div class="d-flex flex-column mb-3">
-              <h4>Duration :</h4>
-              <div class="p-2">
-                <div class="d-flex flex-row align-items-center mb-3">
-                  <i class="fa-solid fa-calculator fa-xl me-2"></i>
-                  <p class="mb-0">${formatDateISO(startDate)} - ${formatDateISO(endDate)}</p>
-                </div>
-              </div>
-              <div class="p-2">
-                <div class="d-flex flex-row align-items-center mb-3">
-                  <i class="fa-regular fa-clock fa-xl me-2"></i>
-                  <p class="mb-0">${durationText}</p>
-                </div>
-              </div>
-            </div>
-      
-            <div class="container">
-              <h4 style="text-align: start;">Technologies:</h4>
-              <div class="row">
-              ${techIcons}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <p class="mt-4">${project.message}</p>
-          </div>
-        </div>
-      </div>`;
+    let detailProject = ` `;
 
     document.getElementById('detail-Project').insertAdjacentHTML('beforeend', detailProject);
     

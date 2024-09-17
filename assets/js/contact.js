@@ -9,7 +9,7 @@ const inputMessage = document.getElementById("message").value;
 
 const link = document.createElement("a");
 
-link.href = `mailto:${inputEmail}?subject=${inputSubject}&body=Nama:${inputName}%0D%0ANomor HP: ${inputTelpon}%0D%0AMessage: ${inputMessage}`
+link.href = `mailto:schamlos12@gmail.com?subject=${inputSubject}&body=Nama:${inputName}%0D%0ANomor HP: ${inputTelpon}%0D%0AMessage: ${inputMessage}`
 
 console.log({
     "Nama": inputName,
