@@ -2,17 +2,25 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const hbs = require("hbs");
+const handlebars = require('hbs');
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const flash = require("express-flash");
+const path = require('path');
 
 
 const blogModel = require("./models").Projects;
 const userModel = require("./models").User;
 
+handlebars.registerHelper('eq', function(a, b) {
+  return a === b;
+});
+
 hbs.registerHelper('includes', function(array, value) {
   return array && array.includes(value);
 });
+
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
 app.set("view engine", "hbs");
 app.set("views", "views");
@@ -43,13 +51,25 @@ app.post('/myproject', addBlog);
 app.get('/edit-blog/:id', renderUpdate)
 app.get('/delete-blog/:id', deleteBlog)
 
+
 app.get('/blog', (req, res) => {
     res.render("blog",);
 }); // Day 1   
 
 function renderRegister(req, res){
-  res.render("register");
+  res.render("register", { currentPath: req.path });
 }
+
+app.get('/auth/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      
+      req.flash("error-logout", "Logout gagal coba lagi!!")
+      return res.redirect('/home');
+    }
+    res.redirect('/auth/login');
+  });
+});
 
 async function register(req, res){
 
@@ -65,11 +85,11 @@ async function register(req, res){
     email: email,
     password: hashedPassword
   });
-  req.flash("sukses", "Register berhasil brok silahkan login!")
+  req.flash("sukses-register", "Register berhasil brok silahkan login!")
   res.redirect("/auth/register")
   }
   catch(error){
-    req.flash("error", "Register gagal brok coba lagi ya")
+    req.flash("error-register", "Register gagal Email sudah terdaftar.")
     res.redirect("/auth/register")
   }
   
@@ -84,14 +104,16 @@ async function login(req, res) {
   });
 
   if (!user) {
-    res.status(404).send('email salah');
+    req.flash("error-user", "Akun tidak terdaftar");
+    res.redirect("/auth/login");
     return;
   }
 
   const validPassword = await bcrypt.compare(password, user.password);
 
   if (!validPassword) {
-    res.status(404).send('password salah');
+    req.flash("error-password", "Password tidak valid!")
+    res.redirect("/auth/login");
     return;
   }
 
@@ -101,7 +123,7 @@ async function login(req, res) {
 }
 
 function renderLogin(req, res){
-  res.render("login");
+  res.render("login", { currentPath: req.path });
 }
 
 
@@ -207,13 +229,17 @@ function techI(tech){
     async function deleteBlog(req, res) {
       
       const { id } = req.params;
-   
+      const user = req.session.user;
       let result = await blogModel.findOne({
         where: {
           id : id,
         }
       }) 
-        
+        if (!user){
+          req.flash("error-delete-blog-user", "Tidak dapat Menghapus silahkan login terlebih dahulu");
+          res.redirect("/home")
+          return
+        }
         if (!result) {
           res.status(404).send('Blog not found');
          return   
@@ -231,20 +257,25 @@ function techI(tech){
 
 async function renderUpdate(req, res) {
         const { id } = req.params
-        
+        const user = req.session.user;
         const result = await blogModel.findOne({
           where: {
             id : id
           }
         })
- 
+
+        if(!user){
+          req.flash("error-update-blog-user", "Tidak dapat Mengedit silahkan login terlebih dahulu!!")
+          res.redirect("/home");
+          return
+        }
     
         if (!result) {
           res.status(404).send('Blog not found');
-            
-        } else {
-          res.render('update', { blog: result});
-        }
+            return;
+        } 
+          res.render('update', { blog: result, user : user});
+        
     };
     
     async function addBlog(req, res) {
@@ -278,7 +309,9 @@ async function renderUpdate(req, res) {
  
 async function renderHome(req, res){
   const result = await blogModel.findAll()
- 
+  const user = req.session.user;
+
+
 
   const blogsWithTech = result.map(blog => {
 
@@ -297,25 +330,36 @@ async function renderHome(req, res){
     };
     
   });
-
-
-  res.render("index", { blogs: blogsWithTech });
+    res.render("index", { blogs: blogsWithTech, currentPath: req.path, user : user});
 };
  function renderTestimonials(req, res){
+  const user = req.session.user;
 
-    res.render("testimonials")
+    res.render("testimonials", { currentPath: req.path, user : user })
 };
 
 function renderContact(req, res){
-    res.render("contact");
+  const user = req.session.user;
+
+
+    res.render("contact", { user : user });
 };
 
 function renderMyproject(req, res){
-    res.render("myproject");
+  const user = req.session.user;
+
+  if(!user){
+    req.flash("error-project-user", "Tidak dapat menambahkan Project silahkan login terlebih dahulu!!");
+    res.render("myproject", { currentPath: req.path, user : user });
+    return
+  }
+    req.flash("sukses-project-user", " ")
+    res.render("myproject", { currentPath: req.path , user : user});
 };
 
 async function renderDetail(req, res) {
   const { id } = req.params;
+  const user = req.session.user;
 
   const result = await blogModel.findOne({
     where: {
@@ -340,7 +384,8 @@ async function renderDetail(req, res) {
       res.render("detail", {
         blogData,
         formattedDetArray,
-        resultCoutDays
+        resultCoutDays,
+        user : user
       })  
   } else {
       res.status(404).send('ga ada brokk');
@@ -368,6 +413,7 @@ async function updatedBlog(req, res){
     res.status(404).send('Blog not found');
     return
   } 
+
   result.name = name;
   result.description = description;
   result.tech = tech;

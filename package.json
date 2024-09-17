@@ -4,7 +4,7 @@
     "sequelize-cli": "^6.6.2"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

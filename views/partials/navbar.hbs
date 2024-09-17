@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <img
+          style="width: 75px; height: 45px; margin-left: 10px"
+          src="/assets/images/dumbwaysid.png"
+        />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-2">
+            <li class="nav-item ms-lg-4">
+              <a class="nav-link {{#if (eq currentPath '/home')}}active{{/if}}" aria-current="page" href="/home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item ms-lg-4">
+              <a class="nav-link {{#if (eq currentPath '/myproject')}}active{{/if}}" href="/myproject">My Project</a>
+            </li>
+            <li class="nav-item ms-lg-4">
+              <a class="nav-link {{#if (eq currentPath '/testimonials')}}active{{/if}}" href="/testimonials">Testiomonials</a>
+            </li>
+          </ul>
+           <ul class="navbar-nav mb-2 mb-lg-0 ms-2">
+            {{#if user}}
+            <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             <img src="/assets/images/foto.jpg" alt="User Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
+             </a>
+             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item" href="/profile/edit">Edit Profile</a></li>
+              <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
+              </ul>
+              </li>
+            {{else}}
+             <li class="nav-item ms-lg-4">
+              <a class="nav-link {{#if (eq currentPath '/auth/login')}}active{{/if}}" href="/auth/login">Login</a>
+            </li>
+            <li class="nav-item ms-lg-2 me-4">
+              <a class="nav-link {{#if (eq currentPath '/auth/register')}}active{{/if}}" href="/auth/register">Register</a>
+            </li>
+              {{/if}}
+          </ul>
+          <button class="btn btn-dark" type="submit">
+            <a href="/contact" style="text-decoration: none; color: white"
+              >Contact Me</a
+            >
+          </button>
+        </div>
+      </div>
+    </nav>
