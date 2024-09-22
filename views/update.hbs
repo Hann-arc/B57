@@ -17,6 +17,10 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/assets/css/underline.css">
 
     <style>
       .active {
@@ -42,8 +46,8 @@
     <!-- FORM -->
     
     <div class="container-md mb-5 container-myproject" style="max-width: 800px;">
-      <h1 class="text-center" style="font-size: 30px;">EDIT MY PROJECT</h1>
-      <form class="mx-lg-5" action="/update-blog/{{blog.id}}" method="POST">
+      <h1 data-aos="zoom-in" data-aos-delay="200" class="text-center" style="font-size: 30px;">EDIT MY PROJECT</h1>
+      <form enctype="multipart/form-data" data-aos="zoom-in" data-aos-delay="400" class="mx-lg-5" action="/update-blog/{{blog.id}}" method="POST">
           <div class="mb-3 mt-5">
           <label for="blog-name" class="form-label">Project Name</label>
           <input type="text" value="{{blog.name}}" name="name" class="form-control" id="blog-name" />
@@ -140,7 +144,7 @@
     
         <div class="mb-5 mt-4">
           <label for="file-upload" class="form-label">Upload image</label>
-          <input class="form-control" type="file" id="file-upload" />
+          <input class="form-control" type="file" id="file-upload" name="image" />
         </div>
     
         <button type="submit" class="btn btn-dark float-end">Submit</button>
@@ -155,5 +159,9 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script>
+  AOS.init();
+</script>
   </body>
 </html>

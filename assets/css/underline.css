@@ -1,0 +1,40 @@
+/* Gaya underline untuk tampilan besar */
+.navbar-nav .nav-link.underline {
+    position: relative;
+    display: inline-block;
+    color: black;
+  }
+  
+  .navbar-nav .nav-link.underline::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 5px;
+    left: 50%;
+    background-color: black;
+    transition: width 0.3s ease-out;
+    transform: translateX(-50%);
+    transform-origin: center;
+  }
+  
+  .navbar-nav .nav-link.underline:hover::after {
+    width: 100%;
+    transform: translateX(-50%);
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-nav .nav-link.underline::after {
+      display: none;
+    }
+    .hide-profile{
+      display: none;
+    }
+  }
+  @media (min-width: 768px){
+    .hide-logout{
+      display: none;
+    }
+  }
+
+  
