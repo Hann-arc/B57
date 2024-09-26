@@ -159,7 +159,7 @@ async function register(req, res){
   res.redirect("/auth/register")
   }
   catch(error){
-    req.flash("error-register", "Registration failed, the email is already registered.") //4
+    req.flash("error-register", "Registration failed, the email is already registered.")
     res.redirect("/auth/register")
   }
   
