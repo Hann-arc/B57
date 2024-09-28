@@ -1,13 +1,26 @@
 const express = require("express");
 const app = express();
-const port = 3000;
 const hbs = require("hbs");
+const { Sequelize, QueryTypes } = require("sequelize")
 const handlebars = require('hbs');
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const flash = require("express-flash");
 const path = require('path');
 const upload = require("./middleweres/upload-file");
+const config = require("./config/config.js");
+
+
+
+require("dotenv").config();
+const port =process.env.PORT || 3000
+
+const envConfig = 
+ process.env.NODE_ENV === "production"
+ ? config.production
+ : config.development;
+
+ const sequlize = new Sequelize({ ...envConfig, dialectModule: require("pg")})
 
 const blogModel = require("./models").Projects;
 const userModel = require("./models").User;
@@ -84,7 +97,6 @@ async function editProfile(req, res) {
       req.session.user.name = edit_name;
     }
 
- 
     if (edit_email && edit_email !== editProfile.email) {
       const existingEmail = await userModel.findOne({ where: { email: edit_email } });
       if (existingEmail) {
@@ -156,7 +168,7 @@ async function register(req, res){
     password: hashedPassword
   });
   req.flash("sukses-register", "Registration successful! Please log in.") //3
-  res.redirect("/auth/register")
+  res.redirect("/auth/login")
   }
   catch(error){
     req.flash("error-register", "Registration failed, the email is already registered.")

@@ -44,6 +44,14 @@
     <!-- INI FORM -->
 
     <div class="container-md container-contactme" style="max-width: 600px;">
+        {{#if messages.sukses-register}}
+   <div class="alert alert-success d-flex align-items-center" role="alert" style="padding: 0.5rem 1rem;">
+  <i class="bi bi-check-circle-fill me-2"></i>
+  <div>
+    {{messages.sukses-register}}
+  </div>
+</div>
+{{/if}}
       {{#if messages.error-user}}
    <div class="alert alert-danger d-flex align-items-center" role="alert" style="padding: 0.5rem 1rem;">
       <i class="bi bi-exclamation-triangle-fill me-2"></i>
